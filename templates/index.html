@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Upload CSV and Get Recommendation</h2>
+    <form action="/recommendation" method="post" enctype="multipart/form-data">
+        <input type="text" name="company_name" placeholder="Company Name">
+        <input type="file" name="csv_file">
+        <input type="submit" value="Get Recommendation">
+    </form>
+
+    <div class="recommendation-box">
+        {% if direction_svm %}
+            <h3>NEWS Direction: <span class="{{ 'green-text' if direction_svm == 'BUY' else 'red-text' if direction_svm == 'SELL' else '' }}">{{ direction_svm }}</span></h3>
+        {% endif %}
+
+        {% if top_row_recommendation %}
+            <h3>DRN Direction: <span class="{{ 'green-text' if top_row_recommendation == 'BUY' else 'red-text' if top_row_recommendation == 'SELL' else '' }}">{{ top_row_recommendation }}</span></h3>
+        {% endif %}
+
+        {% if custom_recom %}
+            <h3>Custom Direction: <span class="{{ 'green-text' if custom_recom == 'BUY' else 'red-text' if custom_recom == 'SELL' else '' }}">{{ custom_recom }}</span></h3>
+        {% endif %}
+
+        {% if vwap_recom %}
+            <h3>VWAP Direction: <span class="{{ 'green-text' if vwap_recom == 'BUY' else 'red-text' if vwap_recom == 'SELL' else '' }}">{{ vwap_recom }}</span></h3>
+        {% endif %}
+
+        {% if fibo_recom %}
+            <h3>Fibonacci Direction: <span class="{{ 'green-text' if fibo_recom == 'BUY' else 'red-text' if fibo_recom == 'SELL' else '' }}">{{ fibo_recom }}</span></h3>
+        {% endif %}
+
+        {% if vwma_recom %}
+            <h3>VWMA Direction: <span class="{{ 'green-text' if vwma_recom == 'BUY' else 'red-text' if vwma_recom == 'SELL' else '' }}">{{ vwma_recom }}</span></h3>
+        {% endif %}
+
+        {% if final_recommendation_output %}
+            <h3 class="final-recommendation">Final Recommendation: {{ final_recommendation_output }}</h3>
+        {% endif %}
+    </div>
+
+    <div class="news-section">
+        {% if articles %}
+            <h3>Latest News Articles:</h3>
+            <ul class="news-list">
+            {% for article in articles %}
+                <li>
+                    <h4><a href="{{ article.url }}" target="_blank">{{ article.headline }}</a></h4>
+                    <small>Date: {{ article.date }} | Time: {{ article.time }}</small>
+                    {% if 'thumbnail' in article %}
+                        <div><img src="{{ article.thumbnail }}" alt="{{ article.headline }}" class="article-thumbnail"></div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if summary %}
+            <h3>News Summary:</h3>
+            <p>{{ summary }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

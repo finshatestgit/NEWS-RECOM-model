@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h2 {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;  /* center the elements inside the form */
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+h3 {
+    margin: 30px 0;  /* Increased margins */
+    padding-left: 20px;
+}
+
+p {
+    margin: 20px 0;  /* Increased margins */
+    padding: 0 20px;
+}
+
+.recommendation-box {
+    margin: 30px auto; /* Increased margins and centered */
+    max-width: 600px;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.final-recommendation {
+    padding: 15px;
+    border: 2px solid #007BFF; /* Blue border */
+    background-color: #EAF7FE; /* Light blue background */
+    color: #007BFF; /* Blue text color */
+    border-radius: 10px; /* Rounded corners */
+    width: fit-content; /* Only as wide as the content */
+    margin: 30px auto; /* Center the recommendation and add margin */
+    font-weight: bold; /* Make text bold */
+}
+
+.green-text {
+    color: #28A745;  /* Green color */
+}
+
+.red-text {
+    color: #DC3545;  /* Red color */
+}
+
+.news-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
